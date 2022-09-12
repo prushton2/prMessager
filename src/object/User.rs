@@ -5,9 +5,9 @@ pub struct User {
     pub key: String
 }
 
-pub fn new(_name: String) -> User {
+pub fn new(_name: &str) -> User {
     User {
-        name: _name,
+        name: _name.to_string(),
         key: createKey()
     }
 }

@@ -5,10 +5,12 @@ mod object;
 
 use actix_web::{web, App, HttpServer, Responder};
 
+static mut userContainer: object::UserContainer::UserContainer = object::UserContainer::new();
 
 #[actix_web::get("/signUp/{name}")]
 async fn signUp(name: web::Path<String>) -> impl Responder {
-    "Hello"
+	let user: object::User::User = object::User::new("Peter");
+    user.key
 }
 
 #[actix_web::main]
